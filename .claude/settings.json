@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/c/.claude/projects\" 2>/dev/**)",
+      "Read(//c/Users/c/.claude/projects//**)",
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\c\\Documents\\GitHub\\Callunit\\_tmp"
+    ]
+  }
+}

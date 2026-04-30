@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth:*)",
+      "Bash(find /c/Users/c/Documents/GitHub/Callunit -name *.env* -o -name supabase* -o -name *.config*)",
+      "Bash(npx supabase:*)"
+    ]
+  }
+}
