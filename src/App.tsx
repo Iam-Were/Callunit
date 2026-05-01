@@ -1,9 +1,14 @@
-function App() {
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ChatPage from './pages/ChatPage'
+import DashboardPage from './pages/DashboardPage'
+
+export default function App() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-50">
-      <h1 className="text-3xl font-bold text-gray-900">Ready</h1>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ChatPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
-
-export default App
