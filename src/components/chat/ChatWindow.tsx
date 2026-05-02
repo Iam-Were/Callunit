@@ -44,8 +44,7 @@ export default function ChatWindow() {
       .single()
 
     if (customerError || !customer) {
-      const msg = customerError ? `Error: ${customerError.message} (${customerError.code})` : 'No customer data returned'
-      addMessage('bot', `[DEBUG] ${msg}`)
+      addMessage('bot', 'Something went wrong. Please describe your concern again.')
       setStep('concern')
       return
     }
