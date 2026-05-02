@@ -43,10 +43,9 @@ export default function ChatWindow() {
       .select('id')
       .single()
 
-    console.error('[DEBUG] upsert result:', JSON.stringify({ customer, customerError }))
-
     if (customerError || !customer) {
-      addMessage('bot', 'Something went wrong. Please describe your concern again.')
+      const msg = customerError ? `Error: ${customerError.message} (${customerError.code})` : 'No customer data returned'
+      addMessage('bot', `[DEBUG] ${msg}`)
       setStep('concern')
       return
     }
