@@ -11,7 +11,8 @@ export function useAgents() {
       .from('agents')
       .select('*')
       .order('name')
-      .then(({ data }) => {
+      .then(({ data, error }) => {
+        if (error) console.error('Failed to fetch agents:', error)
         if (data) setAgents(data as Agent[])
         setLoading(false)
       })

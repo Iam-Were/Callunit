@@ -13,8 +13,9 @@ export function useTickets(filter: FilterOption) {
       ? supabase.from('tickets').select('*, customers(*), agents(*)')
       : supabase.from('tickets').select('*, customers(*), agents(*)').eq('status', filter)
 
-    query.order('updated_at', { ascending: false }).then(({ data }) => {
+    query.order('updated_at', { ascending: false }).then(({ data, error }) => {
       if (cancelled) return
+      if (error) console.error('Failed to fetch tickets:', error)
       if (data) setTickets(data as Ticket[])
       setLoading(false)
     })
