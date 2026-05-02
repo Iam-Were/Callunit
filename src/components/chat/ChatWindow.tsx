@@ -35,11 +35,15 @@ export default function ChatWindow() {
   }
 
   const submitTicket = async (data: Collected) => {
+    console.error('[DEBUG] submitTicket called with:', JSON.stringify(data))
+
     const { data: customer, error: customerError } = await supabase
       .from('customers')
       .upsert({ name: data.name, phone: data.phone, email: data.email }, { onConflict: 'email' })
       .select('id')
       .single()
+
+    console.error('[DEBUG] upsert result:', JSON.stringify({ customer, customerError }))
 
     if (customerError || !customer) {
       addMessage('bot', 'Something went wrong. Please describe your concern again.')
